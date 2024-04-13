@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+  {% block content %}
+  <h1>Car Price Predictor</h1>
+  <br>
+  <br>
+  <br>
+ 
+  
+  <form action="/laptop" method="post">  
+  <div class="center-div">
+    <label>Company 
+        <input class="myInput" list="browsers1" name="myBrowser1" /></label>
+        <datalist id="browsers1">
+          {% for item in company  %}
+               <option value="{{ item }}">{{ item }}</option>
+          {% endfor %}
+        </datalist>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <label>Car Model
+        <input list="browsers2" name="myBrowser2" /></label>
+        <datalist id="browsers2">
+          {% for item in car_models  %}
+               <option value="{{ item }}">{{ item }}</option>
+          {% endfor %}
+        </datalist>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <label>Year of Use
+        <input list="browsers3" name="myBrowser3" /></label>
+        <datalist id="browsers3">
+          {% for item in year  %}
+               <option value="{{ item }}">{{ item }}</option>
+          {% endfor %}
+        </datalist>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+            <label>Fuel Type
+                <input list="browsers5" name="myBrowser5" /></label>
+                <datalist id="browsers5">
+                  {% for item in fuel_type  %}
+                       <option value="{{ item }}">{{ item }}</option>
+                  {% endfor %}
+                </datalist>
+                
+                <br>
+                <br>
+                <br>
+                <br>   
+                
+    <label>Enter the  Kilometers Driven
+        <input list="browsers4" name="myBrowser4" /></label>
+        <datalist id="browsers4">
+        </datalist>
+        <br>
+                <br>
+                <br>
+                <br>   
+
+                              <input type="submit" value="Submit" class=".form-container button">
+
+                             
+
+    <!-- Repeat for each dropdown, incrementing the number in 'browsers' and 'myBrowser' -->
+       </div>
+      </form>
+      <div id="result" style="position: absolute; right: 10px; width: 25%; transform: translateX(-40%); border: 4px dotted black; padding: 10px;  font-size: 25px !important;">
+        {% if prediction %}
+            <p>The price of the laptop is:  ₹{{ prediction }} </p>
+        {% endif %}
+    </div>
+    
+</body>
+{% endblock %}
+
+</html>
+
+

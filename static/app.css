@@ -1,0 +1,53 @@
+
+
+h1 {
+    top: 80%;
+    text-align: center;
+}
+
+h2 {
+  position: relative;
+  text-align: center;
+}
+
+p, h3 {
+  font-size: 16px;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-container label,
+.form-container input {
+  margin: 5px;
+  width: 100%; 
+}
+
+.form-container button {
+  margin: 20px;
+  /* Remove the width property so the button doesn't take up the full width */
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    padding-right:60px;
+    flex-grow: 1; 
+  }
+
+.container {
+    display: flex;
+    align-items: center;
+  }
+
+.center-div {
+    position: absolute;
+    top: 115%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+

@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+  {% block content %}
+  <h1>Laptop Price Predictor</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <br>
+    <br>
+    <br>
+  
+  <form action="/laptop" method="post">  
+  <div class="center-div">
+    <label>Company 
+        <input class="myInput" list="browsers1" name="myBrowser1" /></label>
+        <datalist id="browsers1">
+          {% for item in company  %}
+               <option value="{{ item }}">{{ item }}</option>
+          {% endfor %}
+        </datalist>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <label>Typename
+        <input list="browsers2" name="myBrowser2" /></label>
+        <datalist id="browsers2">
+          {% for item in typename  %}
+               <option value="{{ item }}">{{ item }}</option>
+          {% endfor %}
+        </datalist>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <label>Random Access Memory
+        <input list="browsers3" name="myBrowser3" /></label>
+        <datalist id="browsers3">
+          {% for item in ram  %}
+               <option value="{{ item }}">{{ item }}</option>
+          {% endfor %}
+        </datalist>
+
+        <br>
+        <br>
+        <br>
+        <br>  
+
+        <label> Weight
+            <input list="browsers4" name="myBrowser4" /></label>
+            <datalist id="browsers4">
+            </datalist>  
+            
+            <br>
+            <br>
+            <br>
+            <br> 
+
+
+            <label>Touchscreen
+                <input list="browsers5" name="myBrowser5" /></label>
+                <datalist id="browsers5">
+                  {% for item in touchscreen  %}
+                       <option value="{{ item }}">{{ item }}</option>
+                  {% endfor %}
+                </datalist>
+                
+                <br>
+                <br>
+                <br>
+                <br>   
+                
+                <label>In Plane Switching 
+                    <input list="browsers6" name="myBrowser6" /></label>
+                    <datalist id="browsers6">
+                      {% for item in ips  %}
+                           <option value="{{ item }}">{{ item }}</option>
+                      {% endfor %}
+                    </datalist>
+                    <br>
+                    <br>
+                    <br>
+                    <br>   
+
+                    <label>Pixel Per Inch 
+                      <input list="browsers7" name="myBrowser7" /></label>
+                      <datalist id="browsers7">
+                      </datalist>
+
+                      <br>
+                      <br>
+                      <br>
+                      <br> 
+                      
+                      <label>CPU Brand
+                        <input list="browsers8" name="myBrowser8" /></label>
+                        <datalist id="browsers8">
+                          {% for item in cpu_brand  %}
+                              <option value="{{ item }}">{{ item }}</option>
+                          {% endfor %}
+
+                        </datalist>
+
+                        <br>
+                        <br>
+                        <br>
+                        <br> 
+
+                      <label>Hard Disk Drive
+                        <input list="browsers9" name="myBrowser9" /></label>
+                        <datalist id="browsers9">
+                          {% for item in hdd  %}
+                               <option value="{{ item }}">{{ item }}</option>
+                          {% endfor %}
+                        </datalist>
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>   
+
+                        <label>Solid State Drive
+                          <input list="browsers10" name="myBrowser10" /></label>
+                            <datalist id="browsers10">
+                              {% for item in ssd  %}
+                                   <option value="{{ item }}">{{ item }}</option>
+                              {% endfor %}
+                            </datalist>
+
+                          <br>
+                        <br>
+                        <br>
+                        <br>  
+
+
+                          <label>GPU Brand
+                            <input list="browsers11" name="myBrowser11" /></label>
+                              <datalist id="browsers11">
+                                {% for item in gpu  %}
+                                     <option value="{{ item }}">{{ item }}</option>
+                                {% endfor %}
+                              </datalist>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <label>Operating System
+                              <input list="browsers12" name="myBrowser12" /></label>
+                              <datalist id="browsers12">
+                                {% for item in os  %}
+                                    <option value="{{ item }}">{{ item }}</option>
+                                 {% endfor %}
+                              </datalist>
+
+                              <br>
+                            <br>
+                            <br>
+                            <br> 
+
+                              <input type="submit" value="Submit" class=".form-container button">
+
+                             
+
+    <!-- Repeat for each dropdown, incrementing the number in 'browsers' and 'myBrowser' -->
+       </div>
+      </form>
+      <div id="result" style="position: absolute; right: 10px; width: 25%; transform: translateX(-40%); border: 4px dotted black; padding: 10px;  font-size: 25px !important;">
+        {% if prediction %}
+            <p>The price of the laptop is:  ₹{{ prediction }} </p>
+        {% endif %}
+    </div>
+    
+</body>
+{% endblock %}
+
+</html>
+
+
